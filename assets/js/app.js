@@ -1,9 +1,13 @@
 const pokeList = document.querySelector('#pokeList')
 
 const fetchPokemon = async () => {
-    const response = await fetch("pokeapi.json")
-    const data = await response.json()
-    renderPokemon(data.results)
+    try {
+        const response = await fetch("pokeapi.json")
+        const data = await response.json()
+        renderPokemon(data.results)
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 const fetchPokemonDetails = async (name) => {
